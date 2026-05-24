@@ -29,7 +29,7 @@ export default function MainSection() {
 
       // --------------------------------------------------------------------------------
 
-      const apiKey = process.env.GROQ_API_KEY;
+      const apiKey =import.meta.env.VITE_GROQ_API_KEY;
       let summarizeText = async () => {
         try {
           const response = await fetch(
