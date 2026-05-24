@@ -2,7 +2,6 @@ import { useState } from "react"
 import InputInfo from "./InputInfo"
 import Summary from "./Summary";
 import Loader from "./Loader/Loader"
-import { GoogleGenAI } from "@google/genai";
 
 export default function MainSection() {
 
@@ -12,7 +11,6 @@ export default function MainSection() {
   const [clicked, setClicked] = useState(false)
   const [loader, setLoader] = useState(false)
   const [dataFetch, setDataFetch] = useState(false)
-  const ai = new GoogleGenAI({ apiKey: "AIzaSyB85bKmmDFxDxztVxZq6jQjOOctxZrI5AI" });
   const [res, setRes] = useState("")
 
   async function handleClick() {
