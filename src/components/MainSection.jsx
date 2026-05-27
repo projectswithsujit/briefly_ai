@@ -31,44 +31,30 @@ export default function MainSection() {
 
       
    let summarizeText = async () => {
-
   try {
-
     const response = await fetch(
       "https://server-zalb.onrender.com/summarize",
       {
         method: "POST",
-
         headers: {
           "Content-Type": "application/json",
         },
-
-        body: JSON.stringify({
-          text: text,
-        }),
+        body: JSON.stringify({ text }),
       }
     );
 
+    if (!response.ok) {
+      throw new Error("Failed to fetch summary");
+    }
+
     const data = await response.json();
 
-    setRes(data.summary);
-
+    setRes(data.summary || "No summary returned");
   } catch (error) {
-
-    console.log(error);
-
+    console.log("Error:", error);
+    setRes("Something went wrong while summarizing");
   }
-};
-          const data = await response.json();
-
-          setRes(data.choices[0].message.content);
-        } catch (error) {
-          console.log(error);
-        }
-      };
-
-
-      
+};      
     await summarizeText();
 
 
