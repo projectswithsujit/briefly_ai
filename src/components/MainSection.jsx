@@ -29,29 +29,36 @@ export default function MainSection() {
 
       // --------------------------------------------------------------------------------
 
-      const apiKey =import.meta.env.VITE_GROQ_API_KEY;
-      let summarizeText = async () => {
-        try {
-          const response = await fetch(
-            "https://api.groq.com/openai/v1/chat/completions",
-            {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${apiKey}`,
-              },
-              body: JSON.stringify({
-                model: "llama-3.3-70b-versatile",
-                messages: [
-                  {
-                    role: "user",
-                    content: `Summarize this text simply:\n${text}`,
-                  },
-                ],
-              }),
-            }
-          );
+      
+   let summarizeText = async () => {
 
+  try {
+
+    const response = await fetch(
+      "https://server-zalb.onrender.com/summarize",
+      {
+        method: "POST",
+
+        headers: {
+          "Content-Type": "application/json",
+        },
+
+        body: JSON.stringify({
+          text: text,
+        }),
+      }
+    );
+
+    const data = await response.json();
+
+    setRes(data.summary);
+
+  } catch (error) {
+
+    console.log(error);
+
+  }
+};
           const data = await response.json();
 
           setRes(data.choices[0].message.content);
