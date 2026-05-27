@@ -1,6 +1,13 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
+
 export default function Navbar({ title }){
+        const navigate = useNavigate();
+    function about(){
+
+navigate("/dashboard");
+
+    }
     return(
       <BrowserRouter>
       <nav class="navbar">
@@ -11,7 +18,7 @@ export default function Navbar({ title }){
 
     <div class="nav-links">
       <a href="/">Home</a>
-      <a href="/about.html">About</a>
+      <a onClick={about}>About</a>
 
       <button class="nav-btn">
         Try AI
