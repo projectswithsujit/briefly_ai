@@ -76,6 +76,70 @@
       background:#ff8f26;
     }
 
+
+   /* MOBILE DEVICE  NAVBAR */
+/* HAMBURGER ICON */
+.hamburger{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  cursor:pointer;
+  z-index:200;
+}
+
+.hamburger span{
+  width:26px;
+  height:3px;
+  background:#ff7a00;
+  border-radius:5px;
+  transition:0.3s ease;
+}
+
+/* MOBILE NAV MENU */
+@media(max-width:768px){
+
+  .hamburger{
+    display:flex;
+  }
+
+  .nav-links{
+    position:fixed;
+    top:75px;
+    right:-100%;
+    width:70%;
+    height:calc(100vh - 75px);
+    background:white;
+    flex-direction:column;
+    align-items:flex-start;
+    padding:30px;
+    gap:25px;
+    box-shadow:-10px 0 30px rgba(0,0,0,0.08);
+    transition:0.4s ease-in-out;
+  }
+
+  .nav-links.active{
+    right:0;
+  }
+
+  .nav-links a{
+    font-size:18px;
+    width:100%;
+    padding:10px 0;
+  }
+
+  .hamburger.active span:nth-child(1){
+    transform:rotate(45deg) translateY(8px);
+  }
+
+  .hamburger.active span:nth-child(2){
+    opacity:0;
+  }
+
+  .hamburger.active span:nth-child(3){
+    transform:rotate(-45deg) translateY(-8px);
+  }
+}
+
     /* HERO */
 
     .hero{
