@@ -20,9 +20,6 @@ navigate("/about.html");
       <a href="/">Home</a>
       <a onClick={about}>About</a>
 
-      <button class="nav-btn">
-        Try AI
-      </button>
     </div>
 
   </nav>
