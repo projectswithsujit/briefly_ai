@@ -25,6 +25,7 @@ export default function Summary({ content }) {
                     className="copy-btn"
                     onClick={() => {
                         navigator.clipboard.writeText(content);
+                        alert("Copied!");
                     }}
                 >
                     Copy Summary
