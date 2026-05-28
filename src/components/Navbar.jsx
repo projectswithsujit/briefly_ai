@@ -1,11 +1,11 @@
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Navbar({ title }){
         const navigate = useNavigate();
     function about(){
 
-navigate("/dashboard");
+navigate("/about.html");
 
     }
     return(
