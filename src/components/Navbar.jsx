@@ -1,19 +1,7 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 export default function Navbar({ title }) {
-  const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
-
-  function about() {
-    navigate("/about");
-    setMenuOpen(false);
-  }
-
-  function goHome() {
-    navigate("/");
-    setMenuOpen(false);
-  }
 
   function toggleMenu() {
     setMenuOpen(prev => !prev);
@@ -26,7 +14,7 @@ export default function Navbar({ title }) {
         {title}
       </div>
 
-
+      {/* Hamburger */}
       <div
         className={`hamburger ${menuOpen ? "active" : ""}`}
         onClick={toggleMenu}
@@ -36,9 +24,17 @@ export default function Navbar({ title }) {
         <span></span>
       </div>
 
+      {/* Nav Links */}
       <div className={`nav-links ${menuOpen ? "active" : ""}`}>
-        <a onClick={goHome}>Home</a>
-        <a onClick={about}>About</a>
+
+        <a href="/">Home</a>
+
+        <a
+          href="https://www.sujitmishra.com.np/project-details?id=eRYpYeftOxxcw3DJIf6R"
+        >
+          About
+        </a>
+
       </div>
 
     </nav>
