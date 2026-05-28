@@ -4,7 +4,7 @@ export default function Navbar({ title }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   function toggleMenu() {
-    setMenuOpen(prev => !prev);
+    setMenuOpen(!menuOpen);
   }
 
   return (
@@ -14,24 +14,17 @@ export default function Navbar({ title }) {
         {title}
       </div>
 
-      {/* Hamburger */}
-      <div
-        className={`hamburger ${menuOpen ? "active" : ""}`}
-        onClick={toggleMenu}
-      >
+      <div className="hamburger" onClick={toggleMenu}>
         <span></span>
         <span></span>
         <span></span>
       </div>
 
-      {/* Nav Links */}
-      <div className={`nav-links ${menuOpen ? "active" : ""}`}>
+      <div className={menuOpen ? "nav-links active" : "nav-links"}>
 
         <a href="/">Home</a>
 
-        <a
-          href="https://www.sujitmishra.com.np/project-details?id=eRYpYeftOxxcw3DJIf6R"
-        >
+        <a href="https://www.sujitmishra.com.np/project-details?id=eRYpYeftOxxcw3DJIf6R">
           About
         </a>
 
